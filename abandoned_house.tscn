@@ -20761,7 +20761,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.8),
 "transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
-"values": [Vector3(3.141592653589793, 0, 0), Vector3(3.141592653589793, 1.5707963267948966, 0)]
+"values": [Vector3(3.1415927, 0, 0), Vector3(3.1415927, 1.5707964, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dc57s"]
@@ -27773,6 +27773,8 @@ mesh = SubResource("ArrayMesh_rqkri")
 
 [node name="Collision_Puerta" type="StaticBody3D" parent="Casa/Puerta" unique_id=890474404]
 script = ExtResource("67_342c8")
+is_locked = true
+required_key = "Basement Key"
 interaction_text = "E 打开门"
 
 [node name="@CollisionShape3D@50050" type="CollisionShape3D" parent="Casa/Puerta/Collision_Puerta" unique_id=675775454]

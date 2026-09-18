@@ -4,6 +4,7 @@ extends McpTestSuite
 ## Casa/Puerta 的门动画数据 + door.gd 开关状态机回归测试（编辑器层）。
 ## door.gd 不是 @tool 脚本，场景里的 Collision_Puerta 在编辑器中只是 placeholder，
 ## 所以状态机用 door.gd 的真实实例 + 场景里的真实 open 动画搭一套等价 rig 来跑。
+## 锁相关只覆盖不需要查库存的分支，其余锁用例在真实运行的游戏里跑（见 lock_runtime_suite.gd）。
 
 const CLOSE_ROTATION := Vector3(PI, 0.0, 0.0)      # Puerta 关闭时的真实欧拉角
 const OPEN_ROTATION := Vector3(PI, PI / 2.0, 0.0)  # 绕 Y 轴 +90°：实测门板落在屋内一侧
@@ -69,6 +70,43 @@ func test_scene_starts_closed_without_autoplay() -> void:
 
 func test_scene_prompt_starts_as_open_hint() -> void:
 	assert_eq(_door.get("interaction_text"), "E 打开门", "场景里的关闭态提示不得被改动")
+
+
+func test_scene_door_is_configured_with_basement_key_lock() -> void:
+	assert_eq(_door.get("is_locked"), true, "Casa/Puerta 开局必须是锁住的")
+	assert_eq(_door.get("required_key"), "Basement Key", "解锁钥匙名必须与 key.gd 的 key_name 一致")
+	assert_eq(_door.get("consume_key_on_unlock"), false, "当前设计：Basement Key 是普通钥匙，不消耗")
+
+
+# ─────────────────────────────
+# 锁（不触达 Inventory 的部分）
+# ─────────────────────────────
+
+## PlayerInventory 是 autoload，在编辑器 @tool 层只是 placeholder，调用它的方法会直接报错，
+## 所以这里只能测“解锁流程在碰到 Inventory 之前就 fail closed”的那条分支。
+## 需要真正查库存的用例（无钥匙 / 有钥匙 / 消耗型）在 tests/lock_runtime_suite.gd 里跑真实运行。
+func test_locked_door_without_required_key_fails_closed() -> void:
+	_rig_door.is_locked = true
+	_rig_door.required_key = ""
+
+	_rig_door.interact()
+
+	assert_true(_rig_door.is_locked, "required_key 为空时不得解锁")
+	assert_false(_rig_door.is_animating, "required_key 为空时不得进入动画")
+	assert_false(_rig_door.is_open, "required_key 为空时不得开门")
+	assert_false(_rig_door.target_open, "required_key 为空时目标状态不得被翻转")
+	assert_false(_rig_player.is_playing(), "required_key 为空时不得播放动画")
+	assert_eq(_rig_door.get_interaction_text(), "门锁住了", "配置缺失时应提示门锁着，而不是提示开门")
+
+
+func test_unlocked_rig_door_has_no_lock_behaviour() -> void:
+	assert_false(_rig_door.is_locked, "rig 门默认必须是无锁门")
+	assert_eq(_rig_door.required_key, "", "无锁门不该配钥匙")
+	assert_eq(_rig_door.get_interaction_text(), "E 打开门", "无锁门提示不受锁系统影响")
+	_rig_door.interact()
+	assert_true(_rig_door.is_animating, "无锁门必须直接进入开门动画")
+	_finish_rig_animation()
+	assert_true(_rig_door.is_open, "无锁门应能照常打开")
 
 
 # ─────────────────────────────
@@ -267,6 +305,8 @@ func _build_rig(tree: SceneTree) -> void:
 	_rig_door = (load(DOOR_SCRIPT) as GDScript).new()
 	_rig_door.name = "Collision_Puerta"
 	_rig_door.interaction_text = _door.get("interaction_text")
+	# rig 门刻意保持无锁（door.gd 的三个 Lock 属性用默认值），这样上面的用例测的还是原始开关状态机；
+	# 需要锁的用例在各自 test_ 方法里显式改 rig 的配置，setup() 会为每个用例重建 rig。
 	_rig_host.add_child(_rig_door)
 
 	track(_rig_host)
