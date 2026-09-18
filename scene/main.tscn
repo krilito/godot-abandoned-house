@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cayt0l4mdop20"]
+
+[ext_resource type="PackedScene" uid="uid://cev4g6wwwwxif" path="res://abandoned_house.tscn" id="1_itxqv"]
+[ext_resource type="PackedScene" uid="uid://chhixig7jr5aj" path="res://scripts/player.tscn" id="2_v0l8b"]
+[ext_resource type="PackedScene" uid="uid://bv1cml1ytgf1f" path="res://scene/basement_key.tscn" id="5_0ha60"]
+[ext_resource type="PackedScene" uid="uid://bpefuftdscs1m" path="res://scene/pause.tscn" id="5_4j5ol"]
+
+[node name="Main" type="Node3D" unique_id=1300341978]
+
+[node name="Abandoned_House" parent="." unique_id=32543246 instance=ExtResource("1_itxqv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.248756, 4.712294, 106.17642)
+
+[node name="player" parent="." unique_id=1692308957 instance=ExtResource("2_v0l8b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.991762, 0)
+
+[node name="pause" parent="." unique_id=186975563 instance=ExtResource("5_4j5ol")]
+visible = false
+
+[node name="BasementKey" parent="." unique_id=769246155 instance=ExtResource("5_0ha60")]
+transform = Transform3D(2.5, 0, 0, 0, -9.049975e-06, -2.5, 0, 2.5, -9.049975e-06, -5.5, 6.1192455, -1.600269)

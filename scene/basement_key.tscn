@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://bv1cml1ytgf1f"]
+
+[ext_resource type="Script" uid="uid://c1g0we45qll62" path="res://scripts/key.gd" id="1_u148p"]
+[ext_resource type="Material" uid="uid://cu82xthjsfklo" path="res://assets/material/basement_key_brass.tres" id="2_iyl1a"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_io7lb"]
+size = Vector3(0.12, 0.36, 0.08)
+
+[node name="BasementKey" type="StaticBody3D" unique_id=769246155]
+collision_layer = 3
+script = ExtResource("1_u148p")
+
+[node name="Model" type="CSGCombiner3D" parent="." unique_id=264482997]
+
+[node name="Bow_Ring" type="CSGTorus3D" parent="Model" unique_id=1613079571]
+transform = Transform3D(1.1, 0, 0, 0, -4.2715883e-06, -0.7, 0, 1.18, -2.533993e-06, 0, -0.009780675, 0)
+inner_radius = 0.029
+outer_radius = 0.039
+sides = 12
+ring_sides = 24
+material = ExtResource("2_iyl1a")
+
+[node name="Neck" type="CSGCylinder3D" parent="Model" unique_id=2052523134]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.049, 0)
+radius = 0.0105
+height = 0.018
+sides = 16
+material = ExtResource("2_iyl1a")
+
+[node name="Collar_1" type="CSGCylinder3D" parent="Model" unique_id=104050256]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.061, 0)
+radius = 0.0145
+height = 0.008
+sides = 16
+material = ExtResource("2_iyl1a")
+
+[node name="Collar_2" type="CSGCylinder3D" parent="Model" unique_id=1784942283]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0685, 0)
+radius = 0.012
+height = 0.0055
+sides = 16
+material = ExtResource("2_iyl1a")
+
+[node name="Shaft" type="CSGCylinder3D" parent="Model" unique_id=360838497]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.147, 0)
+radius = 0.0062
+height = 0.152
+sides = 16
+material = ExtResource("2_iyl1a")
+
+[node name="Bit_Spine" type="CSGBox3D" parent="Model" unique_id=579006788]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002, -0.255, 0)
+size = Vector3(0.012, 0.062, 0.016)
+material = ExtResource("2_iyl1a")
+
+[node name="Tooth_Upper" type="CSGBox3D" parent="Model" unique_id=175755118]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02, -0.228, 0)
+size = Vector3(0.028, 0.009, 0.016)
+material = ExtResource("2_iyl1a")
+
+[node name="Tooth_Middle" type="CSGBox3D" parent="Model" unique_id=1489619253]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.017, -0.25, 0)
+size = Vector3(0.022, 0.01, 0.016)
+material = ExtResource("2_iyl1a")
+
+[node name="Tooth_Lower" type="CSGBox3D" parent="Model" unique_id=123194685]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, -0.276, 0)
+size = Vector3(0.03, 0.012, 0.016)
+material = ExtResource("2_iyl1a")
+
+[node name="Bit_Shoulder" type="CSGBox3D" parent="Model" unique_id=651650293]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.004, -0.228, 0)
+size = Vector3(0.02, 0.01, 0.017)
+material = ExtResource("2_iyl1a")
+
+[node name="WardCut_1" type="CSGBox3D" parent="Model" unique_id=726807837]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03, -0.224, 0)
+operation = 2
+size = Vector3(0.012, 0.007, 0.022)
+
+[node name="WardCut_2" type="CSGBox3D" parent="Model" unique_id=1790626839]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.024, -0.247, 0)
+operation = 2
+size = Vector3(0.012, 0.005, 0.02)
+
+[node name="WardCut_3" type="CSGBox3D" parent="Model" unique_id=532673891]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.032, -0.282, 0)
+operation = 2
+size = Vector3(0.016, 0.011, 0.022)
+
+[node name="Tip" type="CSGCylinder3D" parent="Model" unique_id=408214236]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.292, 0)
+radius = 0.005
+height = 0.018
+sides = 12
+cone = true
+material = ExtResource("2_iyl1a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1001364194]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01, -0.14, 0)
+visible = false
+shape = SubResource("BoxShape3D_io7lb")

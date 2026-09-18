@@ -1,0 +1,38 @@
+=====================================
+ LISENSI & PERINGATAN PENGGUNAAN
+=====================================
+
+Lisensi: CC-BY 4.0 (Creative Commons Atribusi 4.0 Internasional)
+Pembuat asli: RaykitsID
+
+
+YANG BOLEH DILAKUKAN
+----------------------
+- Menggunakan, menyalin, menyebarkan, dan mengubah plugin ini
+- Memakai untuk proyek pribadi maupun komersial
+
+
+YANG TIDAK BOLEH DILAKUKAN
+----------------------------
+- Mengklaim plugin ini sebagai buatan sendiri
+- Menjual ulang atau menyebarkan ulang tanpa mencantumkan 
+  nama pembuat asli (RaykitsID)
+- Menghapus informasi pembuat dari dalam file plugin
+
+Lisensi lengkap: https://creativecommons.org/licenses/by/4.0/deed.id
+
+
+BATASAN TANGGUNG JAWAB
+-------------------------
+Plugin dan panduan ini sudah disusun sebaik dan sejelas mungkin.
+Segala kerusakan file, kehilangan data, atau masalah lain yang 
+timbul akibat:
+- tidak mengikuti panduan pemasangan dengan benar,
+- kelalaian pengguna, atau
+- pengubahan kode secara sembarangan,
+
+adalah tanggung jawab pengguna sepenuhnya. Pembuat tidak 
+bertanggung jawab atas kerugian yang timbul dari pemakaian 
+yang tidak sesuai panduan.
+
+Selalu backup project kamu sebelum memakai plugin apapun.

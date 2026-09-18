@@ -1,0 +1,38 @@
+=====================================
+ LICENSE & USAGE DISCLAIMER
+=====================================
+
+License: CC-BY 4.0 (Creative Commons Attribution 4.0 International)
+Original author: RaykitsID
+
+
+PERMITTED
+-----------
+- Use, copy, distribute, and modify this plugin
+- Use for personal or commercial projects
+
+
+NOT PERMITTED
+---------------
+- Claiming this plugin as your own original work
+- Reselling or redistributing without crediting the 
+  original author (RaykitsID)
+- Removing author information from the plugin files
+
+Full license text: https://creativecommons.org/licenses/by/4.0/
+
+
+LIABILITY DISCLAIMER
+-----------------------
+This plugin and its documentation have been prepared as 
+clearly as possible. Any damage, data loss, or other issues 
+arising from:
+- not following the installation guide correctly,
+- user negligence, or
+- unauthorized modification of the code,
+
+are the sole responsibility of the user. The author is not 
+liable for any losses resulting from use that does not follow 
+the provided guide.
+
+Always back up your project before using any plugin.

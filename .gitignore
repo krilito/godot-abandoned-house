@@ -1,0 +1,10 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Qoder: 本机专属配置（MCP 端点、权限授予），不随仓库共享。
+# 注意 .qoder/skills/ 需要纳入版本管理，所以这里只忽略单个文件而非整个目录。
+.qoder/settings.local.json
+
+# Windows 资源管理器产物
+Thumbs.db
